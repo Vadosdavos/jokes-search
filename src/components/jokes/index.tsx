@@ -12,7 +12,7 @@ const Jokes = () => {
         created_at, id, url, value,
       }) => (
         <a key={id} className="first-row flex flex-col gap-2 min-h-[150px] justify-between shadow-xl col-span-6 md:col-span-3 lg:col-span-2 p-[30px] pb-[25px]" href={url} target="_blank" rel="noreferrer">
-          <p className="text-sm">
+          <p className="text-sm break-words">
             {value}
           </p>
           <div className="flex justify-between font-montserrat text-[#767676] text-xs md:text-sm">

@@ -30,7 +30,7 @@ const SearchBar = () => {
         ref={inputRef}
         onChange={handleInputChange}
       />
-      {!!total && (
+      {total !== null && (
         <p className="font-montserrat mt-5 ml-9 leading-tight">
           Found jokes:
           {" "}

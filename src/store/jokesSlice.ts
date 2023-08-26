@@ -17,14 +17,14 @@ interface ApiResponse {
 }
 
 export interface JokesState {
-  total: number,
+  total: number | null,
   jokes: Joke[],
   loading: boolean;
   error: string;
 }
 
 const initialState: JokesState = {
-  total: 0,
+  total: null,
   jokes: [],
   loading: false,
   error: "",
