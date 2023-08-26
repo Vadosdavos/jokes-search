@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import jokes from "./jokesSlice";
 
 export const store = configureStore({
   reducer: {
+    jokes,
   },
 });
 

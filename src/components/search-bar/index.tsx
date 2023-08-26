@@ -1,15 +1,23 @@
-import { useCallback } from "react";
+import { ChangeEventHandler, useCallback } from "react";
+import { fetchJokes } from "../../store/jokesSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
-type SearchBarProps = {
-  itemsTotal: number;
-};
-
-const SearchBar = ({ itemsTotal }: SearchBarProps) => {
+const SearchBar = () => {
+  const dispatch = useAppDispatch();
+  const { total } = useAppSelector((state) => state.jokes);
   const inputRef = useCallback((element: HTMLInputElement) => {
     if (element) {
       element.focus();
     }
   }, []);
+
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const { target } = e;
+    if (target.value.length < 3) {
+      return;
+    }
+    dispatch(fetchJokes(target.value));
+  };
 
   return (
     <div className="mx-auto w-full px-6 md:pb-[60px] md:w-[626px] ">
@@ -20,12 +28,13 @@ const SearchBar = ({ itemsTotal }: SearchBarProps) => {
         name="search-bar"
         placeholder="Search jokes..."
         ref={inputRef}
+        onChange={handleInputChange}
       />
-      {!!itemsTotal && (
+      {!!total && (
         <p className="font-montserrat mt-5 ml-9 leading-tight">
           Found jokes:
           {" "}
-          {itemsTotal}
+          {total}
         </p>
       )}
     </div>
