@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 
 const config: Config = {
   content: [
@@ -10,12 +12,9 @@ const config: Config = {
       center: true,
     },
     extend: {
-      colors: {
-        "chat-bg": "var(--chat-bg)",
-        "ecru-white": "var(--ecru-white)",
-        "brandy-rose": "var(--brandy-rose)",
-        casper: "var(--casper)",
-        "chathams-blue": "var(--chathams-blue)",
+      fontFamily: {
+        'fira': ['Fira Sans', ...defaultTheme.fontFamily.sans],
+        'montserrat': ['Montserrat', ...defaultTheme.fontFamily.sans],
       },
     },
   },

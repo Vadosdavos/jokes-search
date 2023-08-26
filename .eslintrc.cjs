@@ -52,6 +52,6 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/quotes": ["error", "double"],
     "import/no-extraneous-dependencies": ["off"],
-    "no-param-reassign": ["error", { "props": false }]
+    "no-param-reassign": ["error", { "props": false }],
   },
 };
